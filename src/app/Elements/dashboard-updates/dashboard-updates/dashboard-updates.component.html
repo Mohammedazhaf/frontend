@@ -1,0 +1,20 @@
+<div class="updates">
+    <h2 class="title">
+        Latest updates
+    </h2>
+
+    <div class="updates-list" *ngIf="updates.length != 0">
+        <div class="update" *ngFor="let update of updates">
+            <div class="left">
+                <img src={{update.employee.personne.profilPicture}} alt="#" />
+            </div>
+            <div class="right">
+                <p class="content">{{update.contenu}}</p>
+                <p class="meta">{{update.date}} - <strong>{{update.demande.titre}}</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="updates-list" *ngIf="updates.length == 0">
+        <p class="none">There are no recent updates.</p>
+    </div>
+</div>

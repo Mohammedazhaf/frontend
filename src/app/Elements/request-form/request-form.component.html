@@ -1,0 +1,64 @@
+<form role="form" (submit)="makeRequest()"> 
+    <h3>Personal information</h3>
+    <p>Information entered here will be used to create your account.</p>
+    <div class="form-group form-flex">
+        <div class="half-group">
+               <label for="nom">First name</label>
+                <input type="text" name="nom"  class="form-control" placeholder="John" [(ngModel)]="user.nom" required="required">
+        </div>
+        <div class="half-group">
+            <label for="prenom">Last name</label>
+            <input type="text" name="prenom"  class="form-control" placeholder="Doe" [(ngModel)]="user.prenom" required="required">
+        </div> 
+     </div>  
+     <div class="form-group">
+        <label for="numTel">Phone number</label>
+        <input type="number" name="numTel"  class="form-control" placeholder="+212 6 0000 0000"  [(ngModel)]="user.numTel" required="required">
+    </div>
+    <div class="form-group">
+        <label for="nomEntreprise">Entreprise</label>
+        <input type="text" name="nomEntreprise"  class="form-control" placeholder="your company name" [(ngModel)]="user.nomEntreprise" required="required">
+    </div>                  
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" name="email"  class="form-control" placeholder="example@example.com"  [(ngModel)]="user.email" required="required">
+    </div>                          
+    <div class="form-group">
+        <label for="motDePasse">Password</label>
+        <input type="password" name="motDePasse"  class="form-control" placeholder="Enter a strong password like you." [(ngModel)]="user.motDePasse" required="required">
+    </div>
+        
+    
+    <h3 class="seconda">Request Information</h3>
+    <div class="form-group">
+        <label for="type">How can we serve you?</label>
+        <select id="service" name="service" [(ngModel)]="request.service">
+            <option value="code">Coding & Web Development</option>
+            <option value="seo">Search engine Optimization (SEO)</option>
+            <option value="marketing">eMarketing & PPC Ads</option>
+            <option value="secu">Software Maintenance & Security</option>
+          </select>
+    </div>
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" name="title"  class="form-control" placeholder="Enter your request title.." 
+        [(ngModel)]="request.title" required="required">
+    </div>
+    <div class="form-group">
+               <label for="deadline">Pick your requests Deadline</label>
+                <input type="date" name="deadline" class="date"  [(ngModel)]="request.deadline" required="required">
+     </div>  
+     <div class="form-group">
+        <label for="Document">Document</label>
+        <input type="file" name="Document"  class="form-control" placeholder="Enter your  Document.." 
+        [(ngModel)]="request.Document" required="required">
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" rows="8" [(ngModel)]="request.description" 
+        ></textarea>
+    </div>
+    <div class="form-group">
+        <button type="submit" name="submit" class="btn">Submit</button> 
+  </div>     
+</form>

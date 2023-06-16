@@ -1,0 +1,101 @@
+.description-title {
+    margin-top: 50px;
+    font-weight: 500;
+    font-size: 16px;
+    color: #26124E;
+    background: #F3F6FD;
+    width: fit-content;
+    padding: 12px 24px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+.updates-wrapper {
+    background: #F3F6FD;
+    margin-top: 0px;
+    padding: 28px 14px;
+    border-radius: 12px;
+    border-top-left-radius: 0;
+    height: 30vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.speciality p {
+    color: var(--black);
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+}
+.name p {
+    color: var(--black);
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+.right {
+    margin-left: 18px;
+}
+.left img {
+    width: 56px;
+}
+.employee {
+    width: calc(100% - 56px);
+    padding-top: 12px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.assignment {
+    width: 100%;
+    background: #fff;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+.mission p {
+    font-size: 14px;
+}
+.mission {
+    width: calc(100% - 56px);
+    margin-left: 28px;
+    padding-bottom: 2px;
+}
+.mission p span {
+    font-weight: 600;
+    margin-right: 10px;
+}
+.first-row {
+    width: calc(100% - 56px);
+    margin-left: 28px;
+    padding-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.action img {
+    height:30px;
+    transition: all .35s;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.action img:hover {
+    transform: translateY(-4px);
+    box-shadow: rgb(233 37 37 / 35%) 0px 8px 22px 0px;
+}
+button.addAssignment {
+    color: #fff;
+    background: #8468d5;
+    border: none;
+    padding: 12px 18px;
+    transform: translateY(-4px);
+    border-radius: 4px;
+    transition: all .3s;
+}
+button.addAssignment:hover {
+    transform: translateY(-8px);
+}
+.topflex {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}

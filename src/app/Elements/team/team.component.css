@@ -1,0 +1,39 @@
+.csel {
+    width: 50%;
+    margin: auto;
+}
+.team-wrapper {
+    padding-bottom: 10vh;
+}
+h3 {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 300;
+    color: var(--black);
+    margin-bottom: 5vh;
+}
+.item {
+    background: #fff;
+    border-radius: 18px;
+    text-align: center;
+    padding: 30px 0;
+    border:1px solid #e2e5ff;
+}
+.avatar {
+    width: 40%;
+    max-width: 100px;
+    margin: auto;
+}
+h4.name {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+p.occupation {
+    color: gray;
+    font-size: 16px;
+    font-weight: 300;
+}
+.owl-dot.active span {
+    color: var(--purple) !important;
+}

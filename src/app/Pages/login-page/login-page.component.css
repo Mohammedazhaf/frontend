@@ -1,0 +1,56 @@
+.login-wrapper{
+    background: url(https://osumstudio.com/images/bg.jpg) repeat-y top center;
+    background-size: 100% auto;
+    min-height: 100vh;
+}
+.login-container {
+    padding-top: 8%;
+    display: flex;
+    justify-content: space-around;
+}
+.left {
+    width:45%;
+    position: relative;
+}
+h2{
+    font-size: 50px;
+    font-weight: 700;
+    color: #101338;
+    transform: translateY(6vh);
+}
+h2 img {
+    height: 52px;
+    transform: translateY(5px);
+}
+@keyframes float1 {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-40px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+.startup {
+    position: absolute;
+    right: -12%;    
+    animation-name: float1;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+}
+.right {
+    width: 25%;
+    background: #fff;
+    border-radius: 18px;
+    padding: 20px;
+    margin-top: 5%;
+}
+.right p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    color: #474a62;
+    margin-bottom: 40px;
+}

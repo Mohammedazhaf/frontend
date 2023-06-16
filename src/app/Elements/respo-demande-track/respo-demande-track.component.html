@@ -1,0 +1,48 @@
+<div class="demande-tracking-wrapper">
+    <div class="top-section">
+        <div class="line">
+            <h2 class="projects-title">Request #
+                <span>531{{request[0].idDemande}}</span>
+            </h2>
+        </div>
+        <h1 class="demande-titre">{{request[0].titre}}</h1>
+    </div>
+    <div class="bottom-section">
+       <p class="attribute"><span class="subtitle">Status:</span>
+         <span *ngIf="request[0].etat == 'Termine'" class="flag done">
+            <img src="/assets/icons/done.svg" alt="#">
+            Done</span> 
+         <span *ngIf="request[0].etat == 'EnAttente'" class="flag pending">
+            <img src="/assets/icons/pending.svg" alt="#"/>
+            Pending</span> 
+         <span *ngIf="request[0].etat == 'EnCours'" class="flag progress">
+            <img src="/assets/icons/progress.svg" alt="#"/>
+            In Progress</span> 
+         <span *ngIf="request[0].responseResponsable == 'rejete'" class="flag declined">
+            <img src="/assets/icons/declined.svg" alt="#"/>
+            Rejected</span> 
+        <button *ngIf="request[0].etat == 'EnAttente'" class="option toAccept" (click)="updateToProgress()">
+            <img src="/assets/icons/done.svg" alt="#" />
+            Accept the request</button>
+            <button *ngIf="request[0].etat == 'EnAttente'" class="option toReject" (click)="updateToReject()">
+                <img src="/assets/icons/declined.svg" alt="#" />
+                Reject the request</button>
+        <button *ngIf="request[0].etat == 'EnCours'" class="option toAccept" (click)="updateToDone()">
+            <img src="/assets/icons/done.svg" alt="#" />
+            Update status to 'Done'</button>
+        </p>
+       <p class="attribute"><span class="subtitle">Due Date:</span>{{request[0].date}}</p>
+       <p class="attribute"><span class="subtitle">Service:</span>{{request[0].service}}</p>
+       <h3 class="description-title">Description:</h3>
+       <p *ngIf="showFullDescription == false" class="description-content" [innerHTML]=request[0].message></p>
+       <p *ngIf="showFullDescription == true" class="description-content show-more" [innerHTML]=request[0].message></p>
+       <button class="morebtn" (click)="toggleDescription()">
+        {{ showFullDescription ? 'Read Less' : 'Read More' }}
+      </button>
+          <div class="tm" *ngIf="request[0].etat != 'EnAttente' || request[0].responseResponsable != 'rejected'">
+            <app-request-assignments></app-request-assignments>
+            <app-my-request-updates></app-my-request-updates>
+    </div>
+    </div>
+
+</div>

@@ -1,0 +1,14 @@
+<div class="updates">
+    <h3 class="description-title">Updates</h3>
+    <div class="updates-wrapper" *ngIf="updates.length != 0">
+        <app-my-request-update *ngFor="let update of updates"
+        employee="{{update.employee.personne.nom}} {{update.employee.personne.prenom}}"
+        pic="{{update.employee.personne.profilPicture}}"
+        description="{{update.contenu}}" date="{{update.date}}" 
+        pic
+        file = "{{update.file}}" ></app-my-request-update>
+    </div>
+    <div class="updates-wrapper" *ngIf="updates.length == 0">
+        <p class="none">There are no updates yet.</p>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+<h2 class="title">Assignments</h2>
+<div class="assignments-wrapper">
+    <form class="assignment-form" (submit)="submitAssignment()">
+        <h3 class="add-title">
+            Add an assignment:
+        </h3>
+        <div class="inputs">
+            <div class="input-gpe">
+                <p>Employee:</p>
+                <select id="choose employee" [(ngModel)]="selectedEmployeeId" name="emmplo">
+                    <option *ngFor="let employee of employees" value={{employee.idEmployee}}>
+                        {{employee.personne.prenom}} {{employee.personne.nom}} :
+                        <span>{{employee.speciality}}</span>
+                    </option>
+                </select>
+            </div>
+            <div class="input-gpe">
+                <p>Request:</p>
+                <select name="request" [(ngModel)]="selectedDemandeId">
+                    <option *ngFor="let demande of demandes" value={{demande.idDemande}}>
+                   # {{demande.idDemande}} - {{demande.titre}}
+                    </option>
+                </select>
+            </div>
+            <div class="input-gpe">
+                <p>Mission:</p>
+                <input type="text" name="miss" placeholder="Enter mission title.." [(ngModel)]="assignmentData.mission">
+            </div>
+            <div class="input-gpe">
+                <p>Due Date:</p>
+                <input type="date" name="deadline" [(ngModel)]="assignmentData.delaiDate">
+            </div>
+            <button type="submit">Submit</button>
+        </div>
+
+    </form>
+    <div class="search-box">
+        <img src="assets/icons/search.svg" alt="#">
+        <input type="text" class="search" placeholder="Search by employye, Request title or id.." [(ngModel)]="query" (input)="filter()">
+    </div>
+    <table *ngIf="assignmentsAll.length != 0">
+        <thead>
+          <tr>
+            <th class="first-th"></th>
+            <th>Employee</th>
+            <th>Position</th>
+            <th>Request</th>
+            <th>Mission</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let assignment of assignments">
+            <td class="first-td">
+                <img src={{assignment.employee.personne.profilPicture}} alt="#">
+            </td>
+            <td>{{assignment.employee.personne.prenom}} {{assignment.employee.personne.nom}}</td>
+            <td>
+                {{assignment.employee.speciality}}
+            </td>
+            <td>
+                {{assignment.demande.titre}}
+            </td>
+            <td>
+                {{assignment.mission}}
+            </td>
+            <td>
+                <button><img src="assets/icons/edit.svg" alt="#"></button>
+                <button><img src="assets/icons/trash.svg" alt="#"></button>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+    <p class="none" *ngIf="assignmentsAll.length == 0">
+        There are no assignments yet.
+    </p>
+</div>

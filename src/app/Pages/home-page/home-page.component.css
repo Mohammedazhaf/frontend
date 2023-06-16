@@ -1,0 +1,5 @@
+.homepage {
+    background: url(https://osumstudio.com/images/bg.jpg) repeat-y top center;
+    background-size: 100% auto;
+    min-height: 100vh;
+}

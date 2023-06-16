@@ -1,0 +1,54 @@
+.top-line h3 {
+    font-weight: 500;
+    margin: 0;
+}
+.top-line img {
+    height: 38px;
+}
+.top-line {
+    display: flex;
+    align-items: center;
+}
+span.date {
+    font-weight: 400;
+    color: #7c7c7c;
+    font-size: 12px;
+}
+.meta {
+    margin-left: 18px;
+}
+.content p {
+    line-height: 24px;
+    overflow: hidden;
+    max-height: 50px;
+    font-size: 16px;
+    color: #545454;
+}
+.update {
+    width: 95%;
+    padding: 18px;
+    border: none;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    background: #fff;
+}
+.update a img {
+    height: 16px;
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: translateY(-50%);
+}
+.update a {
+    color: #26124E;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    margin-left: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    position: relative;
+    right: 20px;
+    padding-left: 34px;
+    background: #E9E7FF;
+}

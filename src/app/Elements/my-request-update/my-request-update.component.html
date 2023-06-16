@@ -1,0 +1,16 @@
+<div class="update">
+    <div class="top-line">
+        <img src="{{pic}}" alt="#">
+        <div class="meta">
+            <h3>{{employee}}</h3>
+            <span class="date">{{date}}</span>
+        </div>
+    </div>
+    <div class="content">
+        <p>{{description}}</p>
+    </div>
+    <a *ngIf="file != ''" href="{{file}}">
+        <img src="/assets/icons/cllip.svg" alt="#" />
+        View attachement
+    </a>
+</div>
