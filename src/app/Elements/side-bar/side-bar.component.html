@@ -52,7 +52,8 @@
     <div class="lower-menu">
         <div class="current-user">
             <div class="left">
-                <img src={{token.pic}} alt="#" />
+                <img *ngIf="token.pic" src={{token.pic}} alt="#" />
+                <img *ngIf="!token.pic" src="/assets/avatars/usr.png" alt="#" />
             </div>
             <div class="right">
                 <h3>{{token.nom}} {{token.prenom}}</h3>

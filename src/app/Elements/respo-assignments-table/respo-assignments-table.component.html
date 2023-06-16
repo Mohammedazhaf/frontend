@@ -4,6 +4,12 @@
         <h3 class="add-title">
             Add an assignment:
         </h3>
+        <p class="failed" *ngIf="failed == true">
+            we couldn't add the assignment.
+        </p>
+        <p class="success" *ngIf="created == true">
+            assignment added successfully.
+        </p>
         <div class="inputs">
             <div class="input-gpe">
                 <p>Employee:</p>
@@ -36,7 +42,7 @@
     </form>
     <div class="search-box">
         <img src="assets/icons/search.svg" alt="#">
-        <input type="text" class="search" placeholder="Search by employye, Request title or id.." [(ngModel)]="query" (input)="filter()">
+        <input type="text" class="search" placeholder="Search by employee, Request title or id.." [(ngModel)]="query" (input)="filter()">
     </div>
     <table *ngIf="assignmentsAll.length != 0">
         <thead>

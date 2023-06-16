@@ -83,6 +83,8 @@
 .current-user .left  img {
     width: 100%;
     position: relative;
+    border-radius: 110px;
+    background: #e5e5e5;
 }
 
 .current-user .left {

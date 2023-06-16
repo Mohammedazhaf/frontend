@@ -14,12 +14,15 @@ export class RespoAssignmentsTableComponent implements OnInit{
   edit = false
   query = ""
   selectedEmployeeId = 0;
-  selectedDemandeId = 0;
+  selectedDemandeId = 0;    
+  created= false
+  failed = false
   assignmentData: any = {
     mission: '',
     delaiDate: '',
     idDemande: null,
-    idEmployee: null
+    idEmployee: null,
+
   };
   constructor(private route:ActivatedRoute,private httpClient : HttpClient){}
   ngOnInit(): void {
@@ -57,13 +60,14 @@ export class RespoAssignmentsTableComponent implements OnInit{
   submitAssignment() {
     this.assignmentData.idDemande = this.selectedDemandeId;
     this.assignmentData.idEmployee = this.selectedEmployeeId;
-
   this.httpClient.post('http://localhost:8080/api/affectation/add', this.assignmentData)
       .subscribe(response => {
         console.log('Assignment submitted successfully!', response);
+          this.created = true
         // Reset form or perform any other necessary actions
       }, error => {
         console.error('Error submitting assignment:', error);
+          this.failed = true
         // Handle error scenario if needed
       });
   }

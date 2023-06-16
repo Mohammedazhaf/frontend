@@ -35,6 +35,20 @@ td img {
 tr:nth-child(even) {
     background: #f5f8ff;
 }
+p.success {
+    padding: 10px 30px;
+    background: #78ffae75;
+    width: fit-content;
+    border-radius: 10px;
+    font-size: 14px;
+}
+p.failed {
+    padding: 10px 30px;
+    background: #ff787875;
+    width: fit-content;
+    border-radius: 10px;
+    font-size: 14px;
+}
 td button {
     border: none;
     background: transparent;

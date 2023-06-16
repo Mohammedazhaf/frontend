@@ -21,7 +21,10 @@
     </div>                  
     <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" name="email"  class="form-control" placeholder="example@example.com"  [(ngModel)]="user.email" required="required">
+        <input *ngIf="existsError==false && invalidMailError == false" type="email" name="email" (change)="checkmail()" class="form-control" placeholder="example@example.com"  [(ngModel)]="user.email" required="required">
+        <input *ngIf="existsError==true || invalidMailError == true" type="email" name="email"  (change)="checkmail()" class="form-control error-input" placeholder="example@example.com"  [(ngModel)]="user.email" required="required">
+        <p class="fielderr" *ngIf="invalidMailError==true">This email is invalid.</p>
+        <p class="fielderr" *ngIf="existsError==true">This email already exists.</p>
     </div>                          
     <div class="form-group">
         <label for="motDePasse">Password</label>
@@ -33,29 +36,34 @@
     <div class="form-group">
         <label for="type">How can we serve you?</label>
         <select id="service" name="service" [(ngModel)]="request.service">
-            <option value="code">Coding & Web Development</option>
-            <option value="seo">Search engine Optimization (SEO)</option>
-            <option value="marketing">eMarketing & PPC Ads</option>
-            <option value="secu">Software Maintenance & Security</option>
+            <option value="Developpement">Coding & Web Development</option>
+            <option value="Seo">Search engine Optimization (SEO)</option>
+            <option value="Maintenance">eMarketing & PPC Ads</option>
+            <option value="Securite">Software Maintenance & Security</option>
           </select>
     </div>
     <div class="form-group">
         <label for="title">Title</label>
         <input type="text" name="title"  class="form-control" placeholder="Enter your request title.." 
-        [(ngModel)]="request.title" required="required">
+        [(ngModel)]="request.titre" required="required">
     </div>
     <div class="form-group">
-               <label for="deadline">Pick your requests Deadline</label>
-                <input type="date" name="deadline" class="date"  [(ngModel)]="request.deadline" required="required">
+               <label for="deadline">Pick your request's due date</label>
+                <input type="date" name="deadline" class="date"  [(ngModel)]="request.date" required="required">
      </div>  
      <div class="form-group">
-        <label for="Document">Document</label>
-        <input type="file" name="Document"  class="form-control" placeholder="Enter your  Document.." 
-        [(ngModel)]="request.Document" required="required">
+        <label for="Document">Document <span class="tip">(PDF only)</span></label>
+        <input type="file" name="Document" *ngIf="sizeErr || formatErr" class="form-control error-input" placeholder="choose document to upload.." 
+        [(ngModel)]="file.Document" (change)="checkFile($event)">
+        <input type="file" name="Document" *ngIf="!sizeErr && !formatErr" class="form-control" 
+        placeholder="choose document to upload.." 
+        [(ngModel)]="file.Document" (change)="checkFile($event)">
+        <p class="fielderr" *ngIf="sizeErr">Max allowed document size is 5mb.</p>
+        <p class="fielderr" *ngIf="formatErr">Document should be in PDF format.</p>
     </div>
     <div class="form-group">
         <label for="description">Description</label>
-        <textarea id="description" name="description" rows="8" [(ngModel)]="request.description" 
+        <textarea id="description" name="description" rows="8" [(ngModel)]="request.message" 
         ></textarea>
     </div>
     <div class="form-group">
