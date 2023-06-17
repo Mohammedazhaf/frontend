@@ -24,7 +24,7 @@ export class ViewAssignmentComponentComponent implements OnInit{
     }
     this.demande = this.route.snapshot.paramMap.get('id') ?? "";
   
-    this.httpClient.get<any[]>("http://localhost:8080/api/affectation/all").subscribe(
+    this.httpClient.get<any[]>("http://www.mohammedazhaf.me:8080/api/affectation/all").subscribe(
       result => {
         if(result){
           this.assignment = result.filter(item => item.idAffectation == this.demande)

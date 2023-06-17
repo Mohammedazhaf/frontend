@@ -26,7 +26,7 @@ export class RequestsComponent implements OnInit {
       this.token = jwt_decode(this.token);
       this.token = JSON.parse(JSON.stringify(this.token));
       this.httpClient
-        .get<Demande[]>('http://localhost:8080/api/demande/all')
+        .get<Demande[]>('http://www.mohammedazhaf.me:8080/api/demande/all')
         .subscribe((result) => {
           this.requests = result;
           this.pending = result.filter(

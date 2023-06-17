@@ -30,14 +30,14 @@ export class RespoAssignmentsTableComponent implements OnInit{
   successEdit = false
   constructor(private route:ActivatedRoute,private httpClient : HttpClient){}
   ngOnInit(): void {
-    this.httpClient.get<any[]>("http://localhost:8080/api/affectation/all").subscribe(
+    this.httpClient.get<any[]>("http://www.mohammedazhaf.me:8080/api/affectation/all").subscribe(
       result => {
         this.assignments = result
         this.assignmentsAll = result
-        this.httpClient.get<any[]>("http://localhost:8080/api/demande/all").subscribe(
+        this.httpClient.get<any[]>("http://www.mohammedazhaf.me:8080/api/demande/all").subscribe(
           result =>{
             this.demandes = result
-            this.httpClient.get<any[]>("http://localhost:8080/respo/employee/all").subscribe(
+            this.httpClient.get<any[]>("http://www.mohammedazhaf.me:8080/respo/employee/all").subscribe(
               result =>{
                 this.employeesAll = result
               }
@@ -97,7 +97,7 @@ export class RespoAssignmentsTableComponent implements OnInit{
   saveEdit(){
     this.assignmentData.idDemande = this.selectedDemandeId;
     this.assignmentData.idEmployee = this.selectedEmployeeId;
-    this.httpClient.put('http://localhost:8080/api/affectation/update/'+this.selectedAssignment, this.assignmentData)
+    this.httpClient.put('http://www.mohammedazhaf.me:8080/api/affectation/update/'+this.selectedAssignment, this.assignmentData)
       .subscribe(response => {
         console.log('Assignment submitted successfully!', response);
           this.edit = true
@@ -150,7 +150,7 @@ export class RespoAssignmentsTableComponent implements OnInit{
     console.log(this.employees)
   }
   deleteAssignment(id : number){
-    this.httpClient.delete('http://localhost:8080/api/affectation/delete/'+id)
+    this.httpClient.delete('http://www.mohammedazhaf.me:8080/api/affectation/delete/'+id)
       .subscribe(response => {
         console.log('Assignment deleted successfully!', response);
           this.deleted = true
@@ -165,7 +165,7 @@ export class RespoAssignmentsTableComponent implements OnInit{
   submitAssignment() {
     this.assignmentData.idDemande = this.selectedDemandeId;
     this.assignmentData.idEmployee = this.selectedEmployeeId;
-    this.httpClient.post('http://localhost:8080/api/affectation/add', this.assignmentData)
+    this.httpClient.post('http://www.mohammedazhaf.me:8080/api/affectation/add', this.assignmentData)
       .subscribe(response => {
         console.log('Assignment submitted successfully!', response);
           this.created = true

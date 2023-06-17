@@ -61,7 +61,7 @@ export class MyRequestValidateComponent implements OnInit {
     this.demande = this.route.snapshot.paramMap.get('id') ?? '';
 
     this.httpClient
-      .get<Demande>('http://localhost:8080/api/demande/getById/' + this.demande)
+      .get<Demande>('http://www.mohammedazhaf.me:8080/api/demande/getById/' + this.demande)
       .subscribe(
         (result) => {
           if (result) {
@@ -102,7 +102,7 @@ export class MyRequestValidateComponent implements OnInit {
     const headers = new HttpHeaders();
   
     this.httpClient
-      .put(`http://localhost:8080/api/demande/update/${id}`, formData)
+      .put(`http://www.mohammedazhaf.me:8080/api/demande/update/${id}`, formData)
       .subscribe(
         () => {
           console.log('Demande updated successfully');

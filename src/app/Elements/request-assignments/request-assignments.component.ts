@@ -21,7 +21,7 @@ export class RequestAssignmentsComponent implements OnInit{
     }
     if(this.req!="")
       this.demande=this.req
-    this.httpClient.get<any[]>("http://localhost:8080/api/affectation/all").subscribe(
+    this.httpClient.get<any[]>("http://www.mohammedazhaf.me:8080/api/affectation/all").subscribe(
       result => {
         this.assignments = result
         this.assignments = this.assignments.filter(item => item.idDemande == this.demande)
@@ -30,7 +30,7 @@ export class RequestAssignmentsComponent implements OnInit{
     )
   }
   removeAssignment(id : number){
-    this.httpClient.delete("http://localhost:8080/api/affectation/delete/"+id).subscribe(
+    this.httpClient.delete("http://www.mohammedazhaf.me:8080/api/affectation/delete/"+id).subscribe(
     result => {
       console.log("deleted");
       this.ngOnInit()

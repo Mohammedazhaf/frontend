@@ -24,7 +24,7 @@ export class MyAssigmentsComponent {
       this.token = jwt_decode(this.token);
       this.token = JSON.parse(JSON.stringify(this.token));
       this.httpClient
-        .get<any[]>('http://localhost:8080/api/affectation/all')
+        .get<any[]>('http://www.mohammedazhaf.me:8080/api/affectation/all')
         .subscribe((result) => {
           this.assignments = result.filter((item) => item.employee.personne.idPersonne == this.token.idPersonne );
           this.progress = this.assignments.filter((item) => item.demande.etat === "EnCours" );

@@ -27,11 +27,11 @@ ngOnInit(){
         this.token =localStorage.getItem('token');
         this.token = jwt_decode(this.token)
         this.token = JSON.parse(JSON.stringify(this.token))
-        this.httpClient.get<any[]>("http://localhost:8080/api/demande/all").subscribe(
+        this.httpClient.get<any[]>("http://www.mohammedazhaf.me:8080/api/demande/all").subscribe(
           result => {
             this.requests = result
             //console.log(result)
-            this.httpClient.get<any[]>("http://localhost:8080/personnes").subscribe(
+            this.httpClient.get<any[]>("http://www.mohammedazhaf.me:8080/personnes").subscribe(
               result =>{
                 this.requests = this.requests.map(demande => {
                   const personneId = demande.client.personneId;
@@ -48,7 +48,7 @@ ngOnInit(){
                   console.log(this.requests)
                 });
                 //this.requests = result
-                this.httpClient.get<any[]>("http://localhost:8080/api/rapport/all").subscribe(
+                this.httpClient.get<any[]>("http://www.mohammedazhaf.me:8080/api/rapport/all").subscribe(
                 result => {
                   for (let i = 0; i < this.requests.length; i++) {
                     const firstObj = this.requests[i];

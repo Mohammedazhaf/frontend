@@ -19,7 +19,7 @@ export class EmplyeeListComponent implements OnInit {
 
   // show All Employees
   getEmployees() {
-    this.http.get<any>('http://localhost:8080/respo/employee/all').subscribe(
+    this.http.get<any>('http://www.mohammedazhaf.me:8080/respo/employee/all').subscribe(
       (response) => {
         this.Objet = response;
         console.log(this.Objet);
@@ -33,7 +33,7 @@ export class EmplyeeListComponent implements OnInit {
   // delete an employee
   deleteEmployee(employeeId: number) {
     this.http
-      .delete(`http://localhost:8080/respo/employee/delete/${employeeId}`)
+      .delete(`http://www.mohammedazhaf.me:8080/respo/employee/delete/${employeeId}`)
       .subscribe(
         (response) => {
           console.log('Employee deleted successfully');
@@ -51,7 +51,7 @@ export class EmplyeeListComponent implements OnInit {
   // serch for employees
   searchEmployees(nom: string) {
    
-    this.http.get<any>(`http://localhost:8080/respo/employee/search/${nom}`).subscribe(
+    this.http.get<any>(`http://www.mohammedazhaf.me:8080/respo/employee/search/${nom}`).subscribe(
       (response) => {
         this.searchResults = response;
         console.log('Search results:', this.searchResults);

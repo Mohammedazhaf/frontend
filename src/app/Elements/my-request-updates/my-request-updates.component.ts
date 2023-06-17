@@ -18,7 +18,7 @@ export class MyRequestUpdatesComponent implements OnInit{
     }
     if(this.req!="")
     this.demande=this.req
-    this.httpClient.get<any[]>("http://localhost:8080/api/rapport/getByDemandeId/"+this.demande).subscribe(
+    this.httpClient.get<any[]>("http://www.mohammedazhaf.me:8080/api/rapport/getByDemandeId/"+this.demande).subscribe(
       result => {
         this.updates = result
       }

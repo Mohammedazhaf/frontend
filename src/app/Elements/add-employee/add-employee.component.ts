@@ -45,7 +45,7 @@ export class AddEmployeeComponent implements OnInit{
     }
   
   ngOnInit(): void {
-      this.httpClient.get<any[]>("http://localhost:8080/personnes").subscribe(
+      this.httpClient.get<any[]>("http://www.mohammedazhaf.me:8080/personnes").subscribe(
       result => {
         this.users = result
       }
@@ -54,7 +54,7 @@ export class AddEmployeeComponent implements OnInit{
   createEmployee(){
       if(this.existsError == false && this.invalidMailError == false){
         this.user.password = this.user.personne.motDePasse
-        this.httpClient.post("http://localhost:8080/respo/employee/add",this.user).subscribe(
+        this.httpClient.post("http://www.mohammedazhaf.me:8080/respo/employee/add",this.user).subscribe(
           result=> {
             this.added = true
           },

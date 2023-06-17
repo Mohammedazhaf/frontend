@@ -64,7 +64,7 @@ export class AddRapportComponent implements OnInit {
          else
          formData.append('file', "");
          formData.append('rapport', JSON.stringify(this.rapport));
-         this.httpClient.post<any>('http://localhost:8080/api/rapport/add', formData).subscribe(
+         this.httpClient.post<any>('http://www.mohammedazhaf.me:8080/api/rapport/add', formData).subscribe(
             response => {
               this.added = true
                  },
@@ -81,7 +81,7 @@ export class AddRapportComponent implements OnInit {
       this.token = jwt_decode(this.token);
       this.token = JSON.parse(JSON.stringify(this.token));
       this.httpClient
-        .get<any[]>('http://localhost:8080/api/affectation/all')
+        .get<any[]>('http://www.mohammedazhaf.me:8080/api/affectation/all')
         .subscribe((result) => {
           this.assignments = result.filter((item) => item.employee.personne.idPersonne == this.token.idPersonne );
           this.assignments = this.assignments.filter((item) => item.demande.etat == "EnCours" );

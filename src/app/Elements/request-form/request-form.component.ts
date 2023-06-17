@@ -44,7 +44,7 @@ export class RequestFormComponent implements OnInit{
   constructor(private requestService: RequestServiceService, private httpClient : HttpClient,
     private router : Router){}
   ngOnInit(): void {
-    this.httpClient.get<any[]>("http://localhost:8080/personnes").subscribe(
+    this.httpClient.get<any[]>("http://www.mohammedazhaf.me:8080/personnes").subscribe(
       result => {
         this.users = result
       }
@@ -105,7 +105,7 @@ export class RequestFormComponent implements OnInit{
         this.token = jwt_decode(response1.token)
         this.token = JSON.parse(JSON.stringify(this.token))
         //this.request.idPersonne = this.token.idPersonne 
-        this.httpClient.get<any[]>("http://localhost:8080/client/all").subscribe(
+        this.httpClient.get<any[]>("http://www.mohammedazhaf.me:8080/client/all").subscribe(
           result=>{
             this.currentClient = result
             //console.log(this.currentClient)
@@ -120,7 +120,7 @@ export class RequestFormComponent implements OnInit{
             formData.append('file', this.file.Document);
     
             formData.append('demande', JSON.stringify(this.request));
-            this.httpClient.post<any>('http://localhost:8080/api/demande/add', formData).subscribe(
+            this.httpClient.post<any>('http://www.mohammedazhaf.me:8080/api/demande/add', formData).subscribe(
                response => {
                 //console.log('Request created successfully:', response);
                 //alert('Request created successfully');

@@ -25,7 +25,7 @@ export class MyAccountFormComponent implements OnInit {
   }
 
   getPersonneById(id: number): void {
-    const apiUrl = `http://localhost:8080/personnes/${id}`; 
+    const apiUrl = `http://www.mohammedazhaf.me:8080/personnes/${id}`; 
     this.http.get(apiUrl).subscribe((user: any) => {
       this.user = user;
     });
@@ -41,7 +41,7 @@ export class MyAccountFormComponent implements OnInit {
       nomEntreprise:this.user.nomEntreprise,
       role : this.token.role
     }
-    const apiUrl = `http://localhost:8080/personnes/${this.user.idPersonne}`;
+    const apiUrl = `http://www.mohammedazhaf.me:8080/personnes/${this.user.idPersonne}`;
     this.http.put(apiUrl, person ).subscribe(() => {
       console.log('User updated successfully.');
       alert("User updated successfully");

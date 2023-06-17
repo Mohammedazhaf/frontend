@@ -31,7 +31,7 @@ ngOnInit() {
   }
   this.demande = this.route.snapshot.paramMap.get('id') ?? "";
 
-  this.httpClient.get<Demande>("http://localhost:8080/api/demande/getById/"+this.demande).subscribe(
+  this.httpClient.get<Demande>("http://www.mohammedazhaf.me:8080/api/demande/getById/"+this.demande).subscribe(
     result => {
       if(result){
         console.log(result.client.idClient + "  ==  "+ this.token.idPersonne)
@@ -51,7 +51,7 @@ toggleDescription() {
   this.showFullDescription = !this.showFullDescription;
 }
 updateToProgress(){
-  this.httpClient.put("http://localhost:8080/api/demande/accepterResponsable/"+this.demande,null).subscribe(
+  this.httpClient.put("http://www.mohammedazhaf.me:8080/api/demande/accepterResponsable/"+this.demande,null).subscribe(
     result => {
       console.log("accepted");
       this.ngOnInit()
@@ -59,7 +59,7 @@ updateToProgress(){
   )
 }
 updateToDone(){
-  this.httpClient.put("http://localhost:8080/api/demande/doneResponsable/"+this.demande,null).subscribe(
+  this.httpClient.put("http://www.mohammedazhaf.me:8080/api/demande/doneResponsable/"+this.demande,null).subscribe(
     result => {
       console.log("done");
       this.ngOnInit()
@@ -67,7 +67,7 @@ updateToDone(){
   )
 }
 updateToReject(){
-  this.httpClient.put("http://localhost:8080/api/demande/rejeterResponsable/"+this.demande,null).subscribe(
+  this.httpClient.put("http://www.mohammedazhaf.me:8080/api/demande/rejeterResponsable/"+this.demande,null).subscribe(
     result => {
       console.log("rejected");
       this.ngOnInit()

@@ -31,7 +31,7 @@ ngOnInit() {
   }
   this.demande = this.route.snapshot.paramMap.get('id') ?? "";
 
-  this.httpClient.get<Demande>("http://localhost:8080/api/demande/getById/"+this.demande).subscribe(
+  this.httpClient.get<Demande>("http://www.mohammedazhaf.me:8080/api/demande/getById/"+this.demande).subscribe(
     result => {
       if(result){
         console.log(result.client.idClient + "  ==  "+ this.token.idPersonne)

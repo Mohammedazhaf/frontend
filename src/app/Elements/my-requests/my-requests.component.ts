@@ -25,7 +25,7 @@ export class MyRequestsComponent implements OnInit{
           this.token =localStorage.getItem('token');
           this.token = jwt_decode(this.token)
           this.token = JSON.parse(JSON.stringify(this.token))
-          this.httpClient.get<Demande[]>("http://localhost:8080/api/demande/all").subscribe(
+          this.httpClient.get<Demande[]>("http://www.mohammedazhaf.me:8080/api/demande/all").subscribe(
             result => {
               this.requests = result.filter(item => item.client.personneId === this.token.idPersonne)
 
