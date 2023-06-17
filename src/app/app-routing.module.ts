@@ -10,6 +10,11 @@ import { MyAccountComponent } from './Pages/my-account/my-account.component';
 import { RespoRequestsPageComponent } from './Pages/respo-requests-page/respo-requests-page.component';
 import { RespoViewRequestComponent } from './Pages/respo-view-request/respo-view-request.component';
 import { RespoAssignmentsPageComponent } from './Pages/respo-assignments-page/respo-assignments-page.component';
+import { MyRequestValidatePageComponent } from './Pages/my-request-validate-page/my-request-validate-page.component';
+import { AddRequestPageComponent } from './Pages/add-request-page/add-request-page.component';
+import { MyAssigmentsPageComponent } from './Pages/my-assigments-page/my-assigments-page.component';
+import { EmplyeeListPageComponent } from './Pages/emplyee-list-page/emplyee-list-page.component';
+import { AddEmployeePageComponent } from './Pages/add-employee-page/add-employee-page.component';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
@@ -21,7 +26,12 @@ const routes: Routes = [
   {path: 'my-account', component: MyAccountComponent},
   {path: 'my-requests', component: MyRequestsPageComponent},
   {path: 'requests/:id', component: RespoViewRequestComponent},
-  {path: 'assignments', component: RespoAssignmentsPageComponent}
+  {path: 'assignments', component: RespoAssignmentsPageComponent},
+  {path: 'validate-requests', component: MyRequestValidatePageComponent},
+  {path: 'add-request', component: AddRequestPageComponent},
+  {path: 'my-assignments', component: MyAssigmentsPageComponent},
+  {path: 'employees', component: EmplyeeListPageComponent},
+  {path: 'employees/add', component: AddEmployeePageComponent},
 ];
 
 @NgModule({

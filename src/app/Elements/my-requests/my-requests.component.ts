@@ -25,20 +25,19 @@ export class MyRequestsComponent implements OnInit{
           this.token =localStorage.getItem('token');
           this.token = jwt_decode(this.token)
           this.token = JSON.parse(JSON.stringify(this.token))
-          this.httpClient.get<Demande[]>("http://localhost:8080/api/demande/client/"+this.token.idPersonne).subscribe(
+          this.httpClient.get<Demande[]>("http://localhost:8080/api/demande/all").subscribe(
             result => {
-              this.requests = result
+              this.requests = result.filter(item => item.client.personneId === this.token.idPersonne)
 
-              this.pending = result.filter(item => item.responseResponsable === "pending"
+              this.pending = this.requests.filter(item => item.responseResponsable === "pending"
               && item.etat === "EnAttente");
-              this.progress = result.filter(item => item.responseResponsable === "acceptable" 
+              this.progress = this.requests.filter(item => item.responseResponsable === "acceptable" 
               && item.etat === "EnCours" );
-              this.done = result.filter(item => item.responseResponsable === "acceptable" 
+              this.done = this.requests.filter(item => item.responseResponsable === "acceptable" 
               && item.etat === "Termine" );
-              this.declined = result.filter(item => item.responseResponsable === "rejected");
+              this.declined = this.requests.filter(item => item.responseResponsable === "rejected");
               this.chosen = this.progress
-
-              console.log(result)
+              console.log(this.requests)
             }
           )
     }

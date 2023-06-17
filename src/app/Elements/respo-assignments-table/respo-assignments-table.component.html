@@ -1,6 +1,6 @@
 <h2 class="title">Assignments</h2>
 <div class="assignments-wrapper">
-    <form class="assignment-form" (submit)="submitAssignment()">
+    <form class="assignment-form"  *ngIf="edit==false" (submit)="submitAssignment()">
         <h3 class="add-title">
             Add an assignment:
         </h3>
@@ -12,6 +12,14 @@
         </p>
         <div class="inputs">
             <div class="input-gpe">
+                <p>Request:</p>
+                <select name="request" [(ngModel)]="selectedDemandeId" (change)="employeesChoose(false)">
+                    <option *ngFor="let demande of demandes" value={{demande.idDemande}}>
+                   # {{demande.idDemande}} - {{demande.titre}}
+                    </option>
+                </select>
+            </div>
+            <div class="input-gpe">
                 <p>Employee:</p>
                 <select id="choose employee" [(ngModel)]="selectedEmployeeId" name="emmplo">
                     <option *ngFor="let employee of employees" value={{employee.idEmployee}}>
@@ -21,10 +29,42 @@
                 </select>
             </div>
             <div class="input-gpe">
+                <p>Mission:</p>
+                <input type="text" name="miss" placeholder="Enter mission title.." [(ngModel)]="assignmentData.mission">
+            </div>
+            <div class="input-gpe">
+                <p>Due Date:</p>
+                <input type="date" name="deadline" [(ngModel)]="assignmentData.delaiDate">
+            </div>
+            <button type="submit">Submit</button>
+        </div>
+
+    </form>
+    <form class="assignment-form edit" *ngIf="edit==true" (submit)="submitAssignment()">
+        <h3 class="add-title">
+            Edit assignment:
+        </h3>
+        <p class="failed" *ngIf="failedEdit == true">
+            we couldn't edit the assignment.
+        </p>
+        <p class="success" *ngIf="successEdit == true">
+            assignment edited saved.
+        </p>
+        <div class="inputs">
+            <div class="input-gpe">
                 <p>Request:</p>
-                <select name="request" [(ngModel)]="selectedDemandeId">
+                <select name="request" [(ngModel)]="selectedDemandeId" (change)="employeesChoose(false)">
                     <option *ngFor="let demande of demandes" value={{demande.idDemande}}>
                    # {{demande.idDemande}} - {{demande.titre}}
+                    </option>
+                </select>
+            </div>
+            <div class="input-gpe">
+                <p>Employee:</p>
+                <select id="choose employee" [(ngModel)]="selectedEmployeeId" name="emmplo">
+                    <option *ngFor="let employee of employees" value={{employee.idEmployee}}>
+                        {{employee.personne.prenom}} {{employee.personne.nom}} :
+                        <span>{{employee.speciality}}</span>
                     </option>
                 </select>
             </div>
@@ -48,10 +88,11 @@
         <thead>
           <tr>
             <th class="first-th"></th>
-            <th>Employee</th>
-            <th>Position</th>
-            <th>Request</th>
-            <th>Mission</th>
+            <th (click)="sortby('nom')">Employee</th>
+            <th (click)="sortby('position')">Position</th>
+            <th (click)="sortby('demande')">Request</th>
+            <th (click)="sortby('mission')">Mission</th>
+            <th (click)="sortby('date')">Due date</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -71,8 +112,11 @@
                 {{assignment.mission}}
             </td>
             <td>
-                <button><img src="assets/icons/edit.svg" alt="#"></button>
-                <button><img src="assets/icons/trash.svg" alt="#"></button>
+                {{assignment.delaiDate}}
+            </td>
+            <td>
+                <button (click)="selectAssignment(assignment.idAffectation)"><img src="assets/icons/edit.svg" alt="#"></button>
+                <button (click)="deleteAssignment(assignment.idAffectation)"><img src="assets/icons/trash.svg" alt="#"></button>
             </td>
           </tr>
         </tbody>

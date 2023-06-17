@@ -28,6 +28,7 @@ export class RequestFormComponent implements OnInit{
     type: "NonUrgent",
     idClient: 1
   }
+  currentClient : any[] = []
   file ={
     Document: null as File | null
   }
@@ -39,6 +40,7 @@ export class RequestFormComponent implements OnInit{
   emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   formatErr = false
   sizeErr = false
+  formErr = false
   constructor(private requestService: RequestServiceService, private httpClient : HttpClient,
     private router : Router){}
   ngOnInit(): void {
@@ -89,34 +91,44 @@ export class RequestFormComponent implements OnInit{
     this.file.Document = fileEvent.target.files[0]
   }
   makeRequest() {
-    console.log(this.request);
-    console.log(this.user);
-    console.log(this.file.Document);
+   // console.log(this.request);
+   // console.log(this.user);
+   // console.log(this.file.Document);
     // register a new user
 
     if(!this.sizeErr && !this.formatErr && !this.existsError && !this.invalidMailError){
-this.requestService.registeruser(this.user).subscribe(
+    this.requestService.registeruser(this.user).subscribe(
       response1 => {
-        console.log('user created successfully:', response1);
+     //   console.log('user created successfully:', response1);
        // alert('user created successfully');
         localStorage.setItem('token', response1.token);
         this.token = jwt_decode(response1.token)
         this.token = JSON.parse(JSON.stringify(this.token))
         //this.request.idPersonne = this.token.idPersonne 
+        this.httpClient.get<any[]>("http://localhost:8080/client/all").subscribe(
+          result=>{
+            this.currentClient = result
+            //console.log(this.currentClient)
+            this.currentClient = this.currentClient.filter(item => item.personneId === this.token.idPersonne);
+            //console.log(this.currentClient)
 
-        const formData = new FormData();
-        if(this.file.Document)
-        formData.append('file', this.file.Document);
+            //console.log("nays"+this.currentClient[0].idClient)
+            this.request.idClient = this.currentClient[0].idClient
 
-        formData.append('demande', JSON.stringify(this.request));
-
-        this.httpClient.post<any>('http://localhost:8080/api/demande/add', formData).subscribe(
-           response => {
-            console.log('Request created successfully:', response);
-            //alert('Request created successfully');
-            }
+            const formData = new FormData();
+            if(this.file.Document)
+            formData.append('file', this.file.Document);
+    
+            formData.append('demande', JSON.stringify(this.request));
+            this.httpClient.post<any>('http://localhost:8080/api/demande/add', formData).subscribe(
+               response => {
+                //console.log('Request created successfully:', response);
+                //alert('Request created successfully');
+                }
+            )
+                this.router.navigate(['/my-requests'])
+          }
         )
-            this.router.navigate(['/my-requests'])
       },
       error1 => {
         console.error('Error creating user:', error1);
@@ -124,5 +136,7 @@ this.requestService.registeruser(this.user).subscribe(
       }
     );
     }
+    else 
+      this.formErr = false
   }
 }

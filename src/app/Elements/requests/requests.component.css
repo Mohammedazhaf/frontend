@@ -2,7 +2,7 @@
     background: #fff;
     border-radius: 12px;
     padding: 8px 32px;
-    max-width: 100%;
+    max-width: 100vh;
     cursor: pointer;
     transition: all .3s;
     margin-bottom: 30px;
@@ -12,18 +12,13 @@
 .requests-wrapper h2 {
     font-size: 28px;
     font-weight: 500;
-    margin-top: 0vh;
+    margin-top: 0vh; 
+    
 }
 .top-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-.empty p {
-    width: fit-content;
-    padding: 12px 30px;
-    background: #fff;
-    border-radius: 6px;
 }
 button.new-request {
     padding: 10px 22px;
@@ -81,16 +76,12 @@ span.flag img {
     left: 8px;
     transform: translateY(-50%);
 }
-span.pending {
+/* span.pending {
     background: #FFF4E3;
     color: #ef9d3d;
     border: 1px solid #ffe7ca;
-}
-span.progress {
-    background: #e3f6ff;
-    color: #2f48a7;
-    border: 1px solid #caddff;
-}
+} */
+
 span.declined {
     background: #FFE3E3;
     color: #EF6D6D;

@@ -1,0 +1,34 @@
+<form role="form" (submit)="createDemande()"> 
+    <h3 class="seconda">Request Information</h3>
+    <div class="form-group">
+        <label for="type">How can we serve you?</label>
+        <select id="service" name="service" [(ngModel)]="request.service">
+            <option value="code">Coding & Web Development</option>
+            <option value="seo">Search engine Optimization (SEO)</option>
+            <option value="marketing">eMarketing & PPC Ads</option>
+            <option value="secu">Software Maintenance & Security</option>
+          </select>
+    </div>
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" name="title"  class="form-control" placeholder="Enter your request title.." 
+        [(ngModel)]="request.title" required="required">
+    </div>
+    <div class="form-group">
+               <label for="deadline">Pick your requests Deadline</label>
+                <input type="date" name="deadline" class="date"  [(ngModel)]="request.deadline" required="required">
+     </div>  
+     <div class="form-group">
+        <label for="Document">Document</label>
+        <input type="file" name="Document"  class="form-control" placeholder="Enter your  Document.." 
+        [(ngModel)]="request.Document"  required="required">
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" rows="8" [(ngModel)]="request.description" 
+        ></textarea>
+    </div>
+    <div class="form-group">
+        <button type="submit" name="submit" class="btn">Submit</button> 
+  </div>     
+</form>

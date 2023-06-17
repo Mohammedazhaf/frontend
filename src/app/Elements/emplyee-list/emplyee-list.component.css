@@ -1,0 +1,123 @@
+table {
+  border-collapse: collapse;
+  width: 142vh;
+  max-width: 150vh;
+  margin-left: 3vh;
+  background-color: white;
+}
+h2.title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-top: 2vh;
+  color: #160647;
+}
+th {
+  border: 0px solid black;
+  padding: 15px;
+  background-color: #f3f6fd;
+  text-align: left;
+}
+tr:nth-child(even) {
+  background-color: #f3f6fdaa;
+}
+.search {
+  margin-bottom: 10px;
+    height: 50px;
+    position: relative; 
+}
+.search input::placeholder {
+  color: #A19AED !important;
+}
+.profilepic img {
+  height: 50px;
+  border-radius: 1000px;
+}
+.search input {border-radius: 12px;}
+.top-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.search img {position: absolute;
+  position: absolute;
+    left: 12px;
+    bottom: 13px;
+    z-index: 100;
+    height: 20px;
+}
+td {
+  border: 0px solid black;
+  padding: 15px;
+}
+.avatars {
+  width: 50px;
+}
+.action a img {
+  height: 34px;
+} 
+tr {
+  border-radius: 10px;
+}
+.employes {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.employes p {
+  padding-left: 21px;
+  color: #A19AED;
+  font-size: 20px;
+  font-weight: 400;
+  transition: all .35s;
+}
+.employes p:hover {
+  color: #26124E !important;
+  transform: translateY(-4px);
+}
+.active-heading {
+  color: #26124E !important;
+  font-weight: 600!important;
+  font-size: 24px!important;
+  margin-left: 0 !important;
+}
+input[type="text"] {
+  float: right;
+    padding: 10px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+    width: 244px;
+    padding-left: 45px;
+    color: #4d669b;
+}
+.search {
+  margin-bottom: 10px; /* Ajoute une marge en bas de 10 pixels */
+  height: 50px;
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  transform: translateY(-19%);
+  width: 16px;
+  height: 16px;
+}
+
+.table {
+  background: white;
+  width: 149vh;
+  margin-left: 47px;
+  max-height: 75vh;
+  margin: auto;
+  border-radius: 10px;
+  margin-top: 0px;
+  padding-top: 21px;
+  overflow-y: auto;
+}
+
+thead {
+  background-color: lightgray;
+}

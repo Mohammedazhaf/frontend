@@ -1,0 +1,34 @@
+<div class="demande-tracking-wrapper">
+    <div class="top-section">
+        <div class="line">
+            <h2 class="projects-title">Request #
+                <span>531{{request[0].idDemande}}</span>
+            </h2>
+        </div>
+        <h1 class="demande-titre">{{request[0].titre}}</h1>
+    </div>
+    <div class="bottom-section">
+       <p class="attribute"><span class="subtitle">Status:</span>
+         <span *ngIf="request[0].etat == 'Termine'" class="flag done">
+            <img src="/assets/icons/done.svg" alt="#">
+            Done</span> 
+         <span *ngIf="request[0].etat == 'EnAttente'" class="flag pending">
+            <img src="/assets/icons/pending.svg" alt="#"/>
+            Pending</span> 
+         <span *ngIf="request[0].etat == 'EnCours'" class="flag progress">
+            <img src="/assets/icons/progress.svg" alt="#"/>
+            In Progress</span> 
+         <span *ngIf="request[0].responseResponsable == 'rejete'" class="flag declined">
+            <img src="/assets/icons/declined.svg" alt="#"/>
+            Rejected</span> 
+        </p>
+       <p class="attribute"><span class="subtitle">Due Date:</span></p><input class="attribute" type="text" [(ngModel)]="request[0].date" placeholder="Due Date"/>
+       <p class="attribute"><span class="subtitle">Service:</span> </p><input class="attribute" type="text" [(ngModel)]="request[0].service" placeholder="Service">
+       <h3 class="description-title">Description:</h3>
+       <p *ngIf="showFullDescription == false" class="description-content" ></p><textarea v-html class="description-content" [(ngModel)]="request[0].message"></textarea><br>   
+       <button (click)="updateRequest()">Validate</button>
+      
+    </div> 
+</div> 
+
+

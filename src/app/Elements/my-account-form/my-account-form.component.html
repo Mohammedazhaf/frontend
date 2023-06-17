@@ -1,37 +1,36 @@
 <div class="my-account">
-    <h2 class="title">My Account</h2>
-    <form role="form" (submit)="updateUser()"> 
-        <h3>Personal information</h3>
-        <p>Information entered here will be used to create your account.</p>
-        <div class="form-group form-flex">
-            <div class="half-group">
-                   <label for="nom">First name</label>
-                    <input type="text" name="nom"  class="form-control" placeholder="John" [(ngModel)]="user.nom" required="required">
-            </div>
-            <div class="half-group">
-                <label for="prenom">Last name</label>
-                <input type="text" name="prenom"  class="form-control" placeholder="Doe" [(ngModel)]="user.prenom" required="required">
-            </div> 
-         </div>  
-         <div class="form-group">
-            <label for="numTel">Phone number</label>
-            <input type="number" name="numTel"  class="form-control" placeholder="+212 6 0000 0000"  [(ngModel)]="user.numTel" required="required">
-        </div>
-        <div class="form-group">
-            <label for="nomEntreprise">Entreprise</label>
-            <input type="text" name="nomEntreprise"  class="form-control" placeholder="your company name" [(ngModel)]="user.nomEntreprise" required="required">
-        </div>                  
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" name="email"  class="form-control" placeholder="example@example.com"  [(ngModel)]="user.email" required="required">
-        </div>                          
-        <div class="form-group">
-            <label for="motDePasse">Password</label>
-            <input type="password" name="motDePasse"  class="form-control" placeholder="Enter a strong password like you." [(ngModel)]="user.motDePasse" required="required">
-
-        </div>
-        <div class="form-group">
-            <button type="submit" name="submit" class="btn">Submit</button> 
-        </div>     
-    </form>
+  <h2 class="title">My Account</h2>
+  <form role="form" (submit)="updateUser()"> 
+    <h3>Personal information</h3>
+    <p>Information entered here will be used to create your account.</p>
+    <div class="form-group form-flex">
+      <div class="half-group"> 
+        <label for="nom">First name</label>
+        <input type="text" name="nom" class="form-control" placeholder="John" [(ngModel)]="user.nom" required>
+      </div>
+      <div class="half-group">
+        <label for="prenom">Last name</label>
+        <input type="text" name="prenom" class="form-control" placeholder="Doe" [(ngModel)]="user.prenom" required>
+      </div> 
+    </div>  
+    <div class="form-group">
+      <label for="numTel">Phone number</label>
+      <input type="number" name="numTel" class="form-control" placeholder="+212 6 0000 0000" [(ngModel)]="user.numTel" required>
+    </div>
+    <div class="form-group">
+      <label for="nomEntreprise">Entreprise</label>
+      <input type="text" name="nomEntreprise" class="form-control" placeholder="your company name" [(ngModel)]="user.client.nomEntreprise" required>
+    </div>                  
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" name="email" class="form-control" placeholder="example@example.com" [(ngModel)]="user.email" required>
+    </div>                          
+    <div class="form-group">
+      <label for="motDePasse">Password</label>
+      <input type="password" name="motDePasse" class="form-control" placeholder="Enter a strong password" [(ngModel)]="user.motDePasse" required>
+    </div>
+    <div class="form-group">
+      <button type="submit" name="submit" class="btn">Submit</button> 
+    </div>     
+  </form>
 </div>

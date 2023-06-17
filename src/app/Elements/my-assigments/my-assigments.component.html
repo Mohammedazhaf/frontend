@@ -1,0 +1,104 @@
+<div class="requests-wrapper">
+  <h2>My Assigments</h2>
+  <div class="top-bar">
+    <div class="filter-bar" *ngIf="active == 'progress'">
+      <div class="pill progress active" (click)="filter('progress')">
+        <img src="/assets/icons/progress.svg" alt="#" />
+        <span>In progress</span>
+        <span class="count">{{ progress.length }}</span>
+      </div>
+
+      <div class="pill done" (click)="filter('done')">
+        <img src="/assets/icons/done.svg" alt="#" />
+        <span>Done</span>
+        <span class="count">{{ done.length }}</span>
+      </div>
+    </div>
+    <div class="filter-bar" *ngIf="active == 'done'">
+      <div class="pill progress" (click)="filter('progress')">
+        <img src="/assets/icons/progress.svg" alt="#" />
+        <span>In progress</span>
+        <span class="count">{{ progress.length }}</span>
+      </div>
+
+      <div class="pill done active" (click)="filter('done')">
+        <img src="/assets/icons/done.svg" alt="#" />
+        <span>Done</span>
+        <span class="count">{{ done.length }}</span>
+      </div>
+    </div>
+
+    <!-- <button class="new-request">
+              + New Request
+          </button> -->
+  </div>
+  <div *ngIf="chosen.length == 0" class="empty">
+    <p>No results found ! 😔</p>
+  </div>
+  <div class="requests-wrapper">
+    <div class="assigment">
+      <div class="requests" *ngIf="active == 'done'">
+        <div
+          class="request"
+          (click)="navigate(request.idDemande)"
+          *ngFor="let request of done"
+        >
+          <div class="top-line">
+            <p>
+              <span class="request-id">#531{{ request.idDemande }} - </span>
+              <span class="request-title">{{ request.titre }}</span>
+              <span class="flag done">
+                <img src="/assets/icons/done.svg" alt="#" />
+                Done
+              </span>
+            </p>
+          </div>
+          <div class="second-line">
+            <p>
+              <span>Created on:</span>
+              <span class="date">
+                {{ request.creationDate | slice : 0 : 10 }}
+              </span>
+              -
+              <span class="service">{{ request.service }}</span>
+            </p>
+          </div>
+          <p class="short-descriptions">
+            {{ request.message }}
+          </p>
+        </div>
+      </div>
+  
+      <div class="requests2" *ngIf="active == 'progress'">
+        <div
+          class="request"
+          (click)="navigate(request.idDemande)"
+          *ngFor="let request of progress"
+        >
+          <div class="top-line">
+            <p>
+              <span class="request-id">#531{{ request.idDemande }} - </span>
+              <span class="request-title">{{ request.titre }}</span>
+              <span class="flag progress">
+                <img src="/assets/icons/progress.svg" alt="#" />
+                In progress
+              </span>
+            </p>
+          </div>
+          <div class="second-line">
+            <p>
+              <span>Due date:</span>
+              <span class="date">
+                {{ request.date }}
+              </span>
+              -
+              <span class="service">{{ request.service }}</span>
+            </p>
+          </div>
+          <p class="short-descriptions">{{ request.message }}</p>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>

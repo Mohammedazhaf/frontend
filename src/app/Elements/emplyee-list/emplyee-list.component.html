@@ -1,0 +1,73 @@
+<div class="updates">
+    <h2 class="title">Employees</h2>
+  <div class="top-section">
+    <div class="employes">
+      <p class="active-heading">Specialists</p>
+      <p>Responsables</p>
+      <p>Secretary</p>
+    </div>
+        <div class="search">
+        <img src="assets/icons/search.svg" alt="#">
+        <input type="text" name="search" placeholder="Search for an employee" #searchInput (input)="searchEmployees(searchInput.value)" />
+    </div> 
+  </div>
+
+    
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Position</th>
+            <th></th>
+            <th></th>
+         
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngIf="searchResults.length > 0; else allEmployees">
+            <tr *ngFor="let employee of searchResults">
+              <td class="profilepic">
+                <img *ngIf="employee.personne.profilPicture != null" src={{employee.personne.profilPicture}} alt="Profile Picture" />
+                <img *ngIf="employee.personne.profilPicture == null" src="/assets/avatars/usr.png" alt="Profile Picture" />
+
+                <!-- <img [src]="employee.personne.profil_picture" alt="Profile Picture" /> -->
+              </td>
+              <td>{{ employee.personne.nom }} {{ employee.personne.prenom }}</td>
+              <td>{{ employee.personne.email }}</td>
+              <td>{{ employee.speciality }}</td>
+              <td class="action">
+                <a (click)="editEmployee(employee)"><img src="/assets/icons/edit.svg" alt="#" /></a>
+              </td>
+              <td class="action">
+                <a > <img src="/assets/icons/trash.svg" alt="#" (click)="deleteEmployee(employee.idPersonne)"/></a>
+              </td>
+              
+            </tr>
+          </ng-container>
+          <ng-template #allEmployees>
+            <tr *ngFor="let employee of Objet">
+              <td class="profilepic">
+                <img *ngIf="employee.personne.profilPicture != null" src={{employee.personne.profilPicture}} alt="Profile Picture" class="avatars"/>
+                <img *ngIf="employee.personne.profilPicture == null" src="/assets/avatars/usr.png" alt="Profile Picture" class="avatars"/>
+                <!-- <img [src]="employee.personne.profil_picture" alt="Profile Picture" /> -->
+              </td>
+              <td>{{ employee.personne.nom }} {{ employee.personne.prenom }}</td>
+              <td>{{ employee.personne.email }}</td>
+              <td>{{ employee.speciality }}</td>
+              <td class="action">
+                <a  (click)="editEmployee(employee)"><img src="/assets/icons/edit.svg" alt="#" /></a>
+              </td>
+              <td class="action">
+                <a > <img src="/assets/icons/trash.svg" alt="#" (click)="deleteEmployee(employee.idPersonne)"/></a>
+              </td>
+              <!-- Add more columns as needed -->
+            </tr>
+          </ng-template>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

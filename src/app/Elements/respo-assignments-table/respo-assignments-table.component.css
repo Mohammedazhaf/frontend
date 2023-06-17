@@ -91,6 +91,13 @@ form.assignment-form {
     padding: 20px;
     border-radius: 16px;
 }
+form.assignment-form.edit {
+    width: 100%;
+    background: #ece7ff;
+    padding: 20px;
+    border-radius: 16px;
+    border: 2px solid #dcd3ff;
+}
 .assignment-form input, .assignment-form select { 
     padding: 16px 12px;
     margin: 0 40px;
@@ -99,8 +106,13 @@ form.assignment-form {
     margin-bottom: 0;
     width: fit-content !important;
     max-width: 260px;
+    min-width: 230px;
     margin-left: 0;
     background: #f1f5f7;
+}
+.assignment-form.edit input, .assignment-form.edit select { 
+    background: #fff;
+    border: 1px solid #dcd3ff;
 }
 .search {
     margin-top: 10vh;

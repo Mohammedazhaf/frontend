@@ -10,9 +10,6 @@ input,textarea,select {
 .form-group {
     margin-top: 20px;
 }
-h2.title {
-    margin: 40px;
-}
 .form-flex {
     display: flex;
     justify-content: space-between;
@@ -41,6 +38,7 @@ h3 {
     color: var(--black);
     font-size: 20px;
     margin-bottom: 0;
+    margin-top: 0;
     font-weight: 600;
 }
 p { font-size: 14px;
@@ -57,12 +55,8 @@ button {
     width: 100%;
     border-radius: 10px;
 }
-form { 
+form {
     padding-bottom: 30px;
-    padding-left: 40px;
-    width: 108vh;
-
-
 }
 input:focus-visible,textarea:focus-visible,select:focus-visible {
     border: 2px solid #b8cbff;

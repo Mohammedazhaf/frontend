@@ -41,8 +41,17 @@ import { RespoViewRequestComponent } from './Pages/respo-view-request/respo-view
 import { RequestAssignmentsComponent } from './Elements/request-assignments/request-assignments.component';
 import { RespoAssignmentsPageComponent } from './Pages/respo-assignments-page/respo-assignments-page.component';
 import { RespoAssignmentsTableComponent } from './Elements/respo-assignments-table/respo-assignments-table.component'; // Import HttpClientModule
-
-
+import { MyRequestValidatePageComponent } from './Pages/my-request-validate-page/my-request-validate-page.component';
+import { AddRequestPageComponent } from './Pages/add-request-page/add-request-page.component';
+import { MyAssigmentsPageComponent } from './Pages/my-assigments-page/my-assigments-page.component';
+import { EmplyeeListPageComponent } from './Pages/emplyee-list-page/emplyee-list-page.component';
+import { MyRequestValidateComponent } from './Elements/my-request-validate/my-request-validate.component';
+import { MyAssigmentsComponent } from './Elements/my-assigments/my-assigments.component';
+import { RequestsComponent } from './Elements/requests/requests.component';
+import { EmplyeeListComponent } from './Elements/emplyee-list/emplyee-list.component';
+import { AddRequestFormComponent } from './Elements/add-request-form/add-request-form.component';
+import { AddEmployeeComponent } from './Elements/add-employee/add-employee.component';
+import { AddEmployeePageComponent } from './Pages/add-employee-page/add-employee-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,7 +86,18 @@ import { RespoAssignmentsTableComponent } from './Elements/respo-assignments-tab
     RespoViewRequestComponent,
     RequestAssignmentsComponent,
     RespoAssignmentsPageComponent,
-    RespoAssignmentsTableComponent
+    RespoAssignmentsTableComponent,
+    MyRequestValidatePageComponent,
+    AddRequestPageComponent,
+    MyAssigmentsPageComponent,
+    EmplyeeListPageComponent,
+    MyRequestValidateComponent,
+    MyAssigmentsComponent,
+    RequestsComponent,
+    EmplyeeListComponent,
+    AddRequestFormComponent,
+    AddEmployeeComponent,
+    AddEmployeePageComponent
   ],
   imports: [
     BrowserModule,

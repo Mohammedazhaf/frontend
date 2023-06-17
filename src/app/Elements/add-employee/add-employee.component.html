@@ -1,0 +1,43 @@
+<div class="wrapper">
+    <h2 class="title">Add an Employee</h2>
+    <p class="success" *ngIf="added">Employee added with success.</p>
+    <p class="error" *ngIf="errorAdd">There was an error.</p>
+    <form role="form" (submit)="createEmployee()">
+      <h3>Personal information</h3>
+      <div class="form-group form-flex">
+        <div class="half-group">
+          <label for="nom">First name</label>
+          <input required="required" type="text" name="nom" class="form-control" placeholder="John" [(ngModel)]="user.personne.nom" required>
+        </div>
+        <div class="half-group">
+          <label for="prenom">Last name</label>
+          <input required="required" type="text" name="prenom" class="form-control" placeholder="Doe" [(ngModel)]="user.personne.prenom" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="numTel">Phone number</label>
+        <input required="required" type="tel" name="numTel" class="form-control" placeholder="+212 6 0000 0000" [(ngModel)]="user.personne.numTel" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input required="required" *ngIf="!existsError && !invalidMailError" type="email" name="email" (change)="checkmail()" class="form-control" placeholder="example@example.com" [(ngModel)]="user.personne.email" required>
+        <input required="required" *ngIf="existsError || invalidMailError" type="email" name="email" (change)="checkmail()" class="form-control error-input" placeholder="example@example.com" [(ngModel)]="user.personne.email" required>
+        <p class="fielderr" *ngIf="invalidMailError">This email is invalid.</p>
+        <p class="fielderr" *ngIf="existsError">This email already exists.</p>
+      </div>
+      <div class="form-group">
+        <label for="motDePasse">Password</label>
+        <input required="required" type="password" name="motDePasse" class="form-control" placeholder="Enter a strong password" [(ngModel)]="user.personne.motDePasse" required>
+      </div>
+      <div class="form-group">
+        <label for="cin">Legal document ID</label>
+        <input required="required" type="text" name="cin" class="form-control" placeholder="f123456" [(ngModel)]="user.cin" required>
+      </div>
+      <div class="form-group">
+        <label for="speciality">Speciality</label>
+        <input type="text" name="speciality" class="form-control" required="required" placeholder="Web Developer" [(ngModel)]="user.speciality" required>
+      </div>
+      <button type="submit" name="submit" class="btn">Submit</button> 
+    </form>
+  </div>
+  
