@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-request-assignments',
   templateUrl: './request-assignments.component.html',
   styleUrls: ['./request-assignments.component.css']
 })
-export class RequestAssignmentsComponent {
+export class RequestAssignmentsComponent implements OnInit{
+  @Input() req = ""
   demande = ""
   assignments : any[] = []
   employees : any[] = []
@@ -17,6 +19,8 @@ export class RequestAssignmentsComponent {
     if( this.route.snapshot.paramMap.get('id') != null){  
         this.demande = this.route.snapshot.paramMap.get('id') ?? "";
     }
+    if(this.req!="")
+      this.demande=this.req
     this.httpClient.get<any[]>("http://localhost:8080/api/affectation/all").subscribe(
       result => {
         this.assignments = result

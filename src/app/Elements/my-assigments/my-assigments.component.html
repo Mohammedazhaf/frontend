@@ -40,13 +40,15 @@
       <div class="requests" *ngIf="active == 'done'">
         <div
           class="request"
-          (click)="navigate(request.idDemande)"
+          (click)="navigate(request.idAffectation)"
           *ngFor="let request of done"
         >
           <div class="top-line">
             <p>
-              <span class="request-id">#531{{ request.idDemande }} - </span>
-              <span class="request-title">{{ request.titre }}</span>
+              <span class="request-id">#531{{ request.demande.idDemande }} - </span>
+              <span class="request-title">{{ request.demande.titre }}</span>
+              <br>
+              <span class="request-title">mission: {{ request.mission }}</span>
               <span class="flag done">
                 <img src="/assets/icons/done.svg" alt="#" />
                 Done
@@ -57,14 +59,14 @@
             <p>
               <span>Created on:</span>
               <span class="date">
-                {{ request.creationDate | slice : 0 : 10 }}
+                {{ request.demande.creationDate | slice : 0 : 10 }}
               </span>
               -
-              <span class="service">{{ request.service }}</span>
+              <span class="service">{{ request.demande.service }}</span>
             </p>
           </div>
           <p class="short-descriptions">
-            {{ request.message }}
+            {{ request.demande.message }}
           </p>
         </div>
       </div>
@@ -72,13 +74,15 @@
       <div class="requests2" *ngIf="active == 'progress'">
         <div
           class="request"
-          (click)="navigate(request.idDemande)"
+          (click)="navigate(request.idAffectation)"
           *ngFor="let request of progress"
         >
           <div class="top-line">
             <p>
-              <span class="request-id">#531{{ request.idDemande }} - </span>
-              <span class="request-title">{{ request.titre }}</span>
+              <span class="request-id">#531{{ request.demande.idDemande }} - </span>
+              <span class="request-title">{{ request.demande.titre }}</span>
+              <br>
+              <span class="request-title">mission: {{ request.mission }}</span>
               <span class="flag progress">
                 <img src="/assets/icons/progress.svg" alt="#" />
                 In progress
@@ -89,13 +93,13 @@
             <p>
               <span>Due date:</span>
               <span class="date">
-                {{ request.date }}
+                {{ request.demande.date }}
               </span>
               -
-              <span class="service">{{ request.service }}</span>
+              <span class="service">{{ request.demande.service }}</span>
             </p>
           </div>
-          <p class="short-descriptions">{{ request.message }}</p>
+          <p class="short-descriptions">{{ request.demande.message }}</p>
         </div>
       </div>
     </div>

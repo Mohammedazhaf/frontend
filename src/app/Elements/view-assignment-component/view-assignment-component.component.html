@@ -1,0 +1,40 @@
+<div class="demande-tracking-wrapper">
+    <div class="top-section">
+        <div class="line">
+            <h2 class="projects-title">Request #
+                <span>531{{assignment[0].demande.idDemande}}</span>
+            </h2>
+        </div>
+        <h1 class="demande-titre">{{assignment[0].demande.titre}}</h1>
+        <p class="demande-mission"><strong>Mission: </strong> {{assignment[0].mission}}</p>
+    </div>
+    <div class="bottom-section">
+       <p class="attribute"><span class="subtitle">Status:</span>
+         <span *ngIf="assignment[0].demande.etat == 'Termine'" class="flag done">
+            <img src="/assets/icons/done.svg" alt="#">
+            Done</span> 
+         <span *ngIf="assignment[0].demande.etat == 'EnAttente'" class="flag pending">
+            <img src="/assets/icons/pending.svg" alt="#"/>
+            Pending</span> 
+         <span *ngIf="assignment[0].demande.etat == 'EnCours'" class="flag progress">
+            <img src="/assets/icons/progress.svg" alt="#"/>
+            In Progress</span> 
+         <span *ngIf="assignment[0].demande.responseResponsable.etat == 'rejete'" class="flag declined">
+            <img src="/assets/icons/declined.svg" alt="#"/>
+            Rejected</span> 
+        </p>
+       <p class="attribute"><span class="subtitle">Due Date:</span>{{assignment[0].delaiDate}}</p>
+       <p class="attribute"><span class="subtitle">Service:</span>{{assignment[0].demande.service}}</p>
+       <h3 class="description-title">Description:</h3>
+       <p *ngIf="showFullDescription == false" class="description-content" [innerHTML]=assignment[0].demande.message></p>
+       <p *ngIf="showFullDescription == true" class="description-content show-more" [innerHTML]=assignment[0].demande.message></p>
+       <button class="morebtn" (click)="toggleDescription()">
+        {{ showFullDescription ? 'Read Less' : 'Read More' }}
+      </button>
+          <div class="tm" *ngIf="assignment[0].demande.etat != 'EnAttente' || assignment[0].demande.responseResponsable != 'rejected'">
+            <app-request-assignments req={{assignment[0].demande.idDemande}}></app-request-assignments>
+            <app-my-request-updates req={{assignment[0].demande.idDemande}}></app-my-request-updates>
+    </div>
+    </div>
+
+</div>

@@ -1,7 +1,7 @@
 <div class="updates">
     <div class="topflex">
         <h3 class="description-title">Assignments</h3>
-        <button class="addAssignment" (click)="updateAdd()">+ Add an assignment</button>
+        <button class="addAssignment" *ngIf="req == ''" (click)="updateAdd()">+ Add an assignment</button>
     </div>
     <div class="updates-wrapper" *ngIf="assignments.length != 0">
         <div class="assignment" *ngFor="let assignment of assignments">
@@ -18,11 +18,10 @@
                         <p>{{assignment.employee.speciality}}</p></div>
                 </div>
                 </div>
-                <div class="action">
+                <div class="action" *ngIf="req == ''">
                     <img src="assets/icons/trash.svg" alt="#" (click)="removeAssignment(assignment.idAffectation)"/>
                 </div>
             </div>
-            
             <div class="mission">
                 <p><span>Mission:</span>{{assignment.mission}}</p>
             </div>

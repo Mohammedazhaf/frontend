@@ -23,6 +23,7 @@ export class SideBarComponent implements OnInit{
     }
     else 
     this.router.navigate(['login'])
+
     /*const currentUser = localStorage.getItem('user');
     if (currentUser !== null) {
       this.current = JSON.parse(currentUser);
@@ -52,6 +53,9 @@ export class SideBarComponent implements OnInit{
       this.router.navigateByUrl('/login');
 */
     
+  }
+  logout(){
+    localStorage.removeItem("token")
   }
   decodeJwt(jwtToken: string): any {
     try {

@@ -15,6 +15,8 @@ import { AddRequestPageComponent } from './Pages/add-request-page/add-request-pa
 import { MyAssigmentsPageComponent } from './Pages/my-assigments-page/my-assigments-page.component';
 import { EmplyeeListPageComponent } from './Pages/emplyee-list-page/emplyee-list-page.component';
 import { AddEmployeePageComponent } from './Pages/add-employee-page/add-employee-page.component';
+import { ViewAssignmentPageComponent } from './Pages/view-assignment-page/view-assignment-page.component';
+import { AddRapportPageComponent } from './Pages/add-rapport-page/add-rapport-page.component';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
@@ -30,8 +32,10 @@ const routes: Routes = [
   {path: 'validate-requests', component: MyRequestValidatePageComponent},
   {path: 'add-request', component: AddRequestPageComponent},
   {path: 'my-assignments', component: MyAssigmentsPageComponent},
+  {path: 'my-assignments/:id', component: ViewAssignmentPageComponent},
   {path: 'employees', component: EmplyeeListPageComponent},
   {path: 'employees/add', component: AddEmployeePageComponent},
+  {path: 'add-update', component: AddRapportPageComponent},
 ];
 
 @NgModule({

@@ -1,0 +1,35 @@
+<div class="wrapper">
+    <h2 class="title">Add an Employee</h2>
+    <p class="success" *ngIf="added">Update added with success.</p>
+    <p class="error" *ngIf="errorAdd">There was an error.</p>
+    <form role="form" (submit)="makeRequest()">
+      <h3>Update information</h3>
+      <div class="form-group form-flex">
+        <div class="form-group">
+          <label for="assignment">assignment</label>
+          <select id="choose employee" [(ngModel)]="rapport.idDemande" name="emmplo">
+            <option *ngFor="let assignment of assignments" value={{assignment.demande.idDemande}}>
+                {{assignment.demande.titre}}
+            </option>
+        </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="numTel">Description</label>
+        <textarea name="contenu" class="form-control"  id="contenu" cols="30" rows="10" 
+        [(ngModel)]="rapport.contenu" required="required"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="Document">Document <span class="tip">(PDF only)</span></label>
+        <input type="file" name="Document" *ngIf="sizeErr || formatErr" class="form-control error-input" placeholder="choose document to upload.." 
+        [(ngModel)]="file.Document" (change)="checkFile($event)">
+        <input type="file" name="Document" *ngIf="!sizeErr && !formatErr" class="form-control" 
+        placeholder="choose document to upload.." 
+        [(ngModel)]="file.Document" (change)="checkFile($event)">
+        <p class="fielderr" *ngIf="sizeErr">Max allowed document size is 5mb.</p>
+        <p class="fielderr" *ngIf="formatErr">Document should be in PDF format.</p>
+    </div>
+      <button type="submit" name="submit" class="btn">Submit</button> 
+    </form>
+  </div>
+  

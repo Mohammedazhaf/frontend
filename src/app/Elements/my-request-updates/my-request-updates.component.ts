@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 @Component({
@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./my-request-updates.component.css']
 })
 export class MyRequestUpdatesComponent implements OnInit{
-
+  @Input() req = ""
   demande = ""
   updates : any[] = []
   constructor(private route:ActivatedRoute,private httpClient : HttpClient){}
@@ -16,6 +16,8 @@ export class MyRequestUpdatesComponent implements OnInit{
     if( this.route.snapshot.paramMap.get('id') != null){  
         this.demande = this.route.snapshot.paramMap.get('id') ?? "";
     }
+    if(this.req!="")
+    this.demande=this.req
     this.httpClient.get<any[]>("http://localhost:8080/api/rapport/getByDemandeId/"+this.demande).subscribe(
       result => {
         this.updates = result

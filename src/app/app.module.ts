@@ -52,6 +52,10 @@ import { EmplyeeListComponent } from './Elements/emplyee-list/emplyee-list.compo
 import { AddRequestFormComponent } from './Elements/add-request-form/add-request-form.component';
 import { AddEmployeeComponent } from './Elements/add-employee/add-employee.component';
 import { AddEmployeePageComponent } from './Pages/add-employee-page/add-employee-page.component';
+import { ViewAssignmentPageComponent } from './Pages/view-assignment-page/view-assignment-page.component';
+import { ViewAssignmentComponentComponent } from './Elements/view-assignment-component/view-assignment-component.component';
+import { AddRapportComponent } from './Elements/add-rapport/add-rapport.component';
+import { AddRapportPageComponent } from './Pages/add-rapport-page/add-rapport-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,7 +101,11 @@ import { AddEmployeePageComponent } from './Pages/add-employee-page/add-employee
     EmplyeeListComponent,
     AddRequestFormComponent,
     AddEmployeeComponent,
-    AddEmployeePageComponent
+    AddEmployeePageComponent,
+    ViewAssignmentPageComponent,
+    ViewAssignmentComponentComponent,
+    AddRapportComponent,
+    AddRapportPageComponent
   ],
   imports: [
     BrowserModule,

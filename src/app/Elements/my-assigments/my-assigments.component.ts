@@ -9,11 +9,11 @@ import jwt_decode from 'jwt-decode';
   styleUrls: ['./my-assigments.component.css']
 })
 export class MyAssigmentsComponent {
-  requests: Demande[] = []; 
-  progress: Demande[] = [];
-  done: Demande[] = [] 
+  assignments: any[] = []; 
+  progress: any[] = [];
+  done: any[] = [] 
   active = 'progress';
-  chosen: Demande[] = [];
+  chosen: any[] = [];
 
   token: any;
 
@@ -24,14 +24,13 @@ export class MyAssigmentsComponent {
       this.token = jwt_decode(this.token);
       this.token = JSON.parse(JSON.stringify(this.token));
       this.httpClient
-        .get<Demande[]>('http://localhost:8080/api/demande/all')
+        .get<any[]>('http://localhost:8080/api/affectation/all')
         .subscribe((result) => {
-          this.requests = result;
-         
-          this.progress = result.filter((item) => item.etat === "EnCours" );
-          this.done = result.filter( (item) => item.etat === "Termine" );
-          this.chosen = this.done;
-          console.log(result);
+          this.assignments = result.filter((item) => item.employee.personne.idPersonne == this.token.idPersonne );
+          this.progress = this.assignments.filter((item) => item.demande.etat === "EnCours" );
+          this.done = this.assignments.filter( (item) => item.demande.etat === "Termine" );
+          this.chosen = this.progress;
+          console.log(this.assignments);
         });
     } else this.router.navigate(['login']);
   }
@@ -42,7 +41,7 @@ export class MyAssigmentsComponent {
     if(choice == "done") this.chosen = this.done;
   }
   navigate(lien: number) {
-    this.router.navigate(['' + lien]);
+    this.router.navigate(['/my-assignments/' + lien]);
   }
 }
  
