@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProjectsService {
-  private baseUrl = 'http://localhost:8080/api/demande/';
+  private baseUrl = 'http://www.mohammedazhaf.me:8080/api/demande/';
   constructor(private http: HttpClient) { }
   login(user: any) {
     return this.http.post<any>(`${this.baseUrl}`, user);

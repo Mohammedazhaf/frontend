@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthenticateService {
-  private baseUrl = 'http://localhost:8080/auth/authenticate';
-  private authUrl = 'http://localhost:8080/auth/validateToken';
+  private baseUrl = 'http://www.mohammedazhaf.me:8080/auth/authenticate';
+  private authUrl = 'http://www.mohammedazhaf.me:8080/auth/validateToken';
   constructor(private http: HttpClient) { }
   login(user: any) {
     return this.http.post<any>(`${this.baseUrl}`, user);

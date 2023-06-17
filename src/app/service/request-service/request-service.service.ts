@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 export class RequestServiceService {
 
 
-  private baseUrl = 'http://localhost:8080/api/requests';
-  private baseUrl2 = 'http://localhost:8080/auth/register';
+  private baseUrl = 'http://www.mohammedazhaf.me:8080/api/requests';
+  private baseUrl2 = 'http://www.mohammedazhaf.me:8080/auth/register';
 
 
   constructor(private http: HttpClient) { }
