@@ -18,7 +18,6 @@
     "@angular/platform-browser": "^15.0.0",
     "@angular/platform-browser-dynamic": "^15.0.0",
     "@angular/router": "^15.0.0",
-    "angular-password-strength-meter": "^5.0.1",
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "jsonwebtoken": "^9.0.0",
